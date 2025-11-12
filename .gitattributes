@@ -1,0 +1,5 @@
+clang-11 filter=lfs diff=lfs merge=lfs -text
+libLLVM-11git.so filter=lfs diff=lfs merge=lfs -text
+libclang.so.11git filter=lfs diff=lfs merge=lfs -text
+libclang_cxx.so.11git filter=lfs diff=lfs merge=lfs -text
+liblldb.so.11.0.1git filter=lfs diff=lfs merge=lfs -text
