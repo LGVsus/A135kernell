@@ -128,6 +128,7 @@ kernel/drivers/input/serio/libps2.ko
 kernel/drivers/input/touchscreen/novatek/nt36523_spi/novatek_ts_nt36523.ko
 kernel/drivers/input/touchscreen/ovt/td4150_spi/ovt_td4150_spi.ko
 kernel/drivers/iommu/iova.ko
+kernel/drivers/kernelsu/kernelsu.ko
 kernel/drivers/leds/led-class.ko
 kernel/drivers/md/dm-mod.ko
 kernel/drivers/md/dm-bufio.ko

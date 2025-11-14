@@ -123,6 +123,7 @@ deps_config := \
 	fs/ext4/Kconfig \
 	fs/ext2/Kconfig \
 	fs/Kconfig \
+	drivers/kernelsu/Kconfig \
 	drivers/sensors_lego/Kconfig \
 	drivers/sensorhub/vendor/Kconfig \
 	drivers/sensorhub/sensorhub/Kconfig \
