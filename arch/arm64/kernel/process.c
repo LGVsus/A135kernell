@@ -141,8 +141,8 @@ void machine_power_off(void)
 		pm_power_off();
 
 	/* FAIL-SAFE: Si el driver del hardware llega a retornar por alguna razón,
-	   encerramos al procesador en un bucle infinito. Esto causará un 'Halt' limpio
-	   (pantalla negra estable) en lugar de permitir que se dispare el reinicio automático. */
+	 * encerramos al procesador en un bucle infinito. Esto causará un 'Halt' limpio
+	 * (pantalla negra estable) en lugar de permitir que se dispare el reinicio automático. */
 	while (1);
 }
 
