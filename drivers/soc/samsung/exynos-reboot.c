@@ -103,7 +103,27 @@ static void exynos_power_off_v1(void)
 #else
 static void exynos_power_off_v1(void)
 {
-	dev_info(exynos_reboot.dev, "Exynos power off does not support.\n");
+	const struct exynos_reboot_variant *variant = exynos_reboot.variant;
+	unsigned int val = 0;
+
+	dev_emerg(exynos_reboot.dev, "GSI Shutdown Fix: Forcing PS_HOLD Low\n");
+
+#ifdef CONFIG_EXYNOS_ACPM
+	exynos_acpm_reboot();
+#endif
+	dbg_snapshot_scratch_clear();
+
+	/* Forzamos el pin PS_HOLD a estado bajo para cortar la corriente instantáneamente */
+	if (exynos_reboot.reg_base && variant) {
+		val = readl((void *)((long)exynos_reboot.reg_base + variant->ps_hold_reg));
+		writel(val & ~(1 << variant->ps_hold_data_bit),
+				(void *)((long)exynos_reboot.reg_base + variant->ps_hold_reg));
+	}
+
+	/* Bucle infinito de seguridad por si el hardware tarda unos milisegundos en reaccionar */
+	while (1) {
+		mdelay(1000);
+	}
 }
 #endif
 
